@@ -1,6 +1,7 @@
 package edu.bsuir.driver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -11,11 +12,11 @@ public class WebDriverSingleton {
 
     public static WebDriver getInstance() {
         if (webDriver == null) {
-            System.setProperty("webdriver.gecko.driver", "lib/drivers/geckodriver.exe");
-            webDriver = new FirefoxDriver();
-            webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            //System.setProperty("webdriver.gecko.driver", "lib/drivers/geckodriver.exe");
+            webDriver = new ChromeDriver();
+            webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             webDriver.manage().window().maximize();
-            webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+            webDriver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         }
         return webDriver;
     }
