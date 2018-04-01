@@ -12,11 +12,11 @@ public class WebDriverSingleton {
 
     public static WebDriver getInstance() {
         if (webDriver == null) {
-            //System.setProperty("webdriver.gecko.driver", "lib/drivers/geckodriver.exe");
+            System.setProperty("webdriver.chrome.driver", "lib/drivers/chromedriver.exe");
             webDriver = new ChromeDriver();
             webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             webDriver.manage().window().maximize();
-            webDriver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+            webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         }
         return webDriver;
     }
